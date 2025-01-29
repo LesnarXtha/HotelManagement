@@ -1,0 +1,45 @@
+﻿@model IEnumerable<HotelManagement.Bookings.BookingModel>
+
+@{
+    ViewData["Title"] = "All Booked Rooms";
+}
+
+<h1>All Booked Rooms</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Room Number</th>
+            <th>Room Type</th>
+            <th>Booked By</th>
+            <th>Check-In Date</th>
+            <th>Check-Out Date</th>
+            <th>Price</th>
+            @* @* <th>Actions</th> *@ 
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var booking in Model)
+        {
+            <tr>
+                <td>@booking.Room.RoomNumber</td>
+                <td>@booking.Room.RoomType</td>
+                <td>@booking.FirstName @booking.LastName</td>
+                <td>@booking.CheckInDate.ToString("yyyy-MM-dd")</td>
+                <td>@booking.CheckOutDate.ToString("yyyy-MM-dd")</td>
+                <td>$@booking.Room.RoomPrice</td>
+                @* <td> *@
+                @*     <form asp-action="Cancel" method="post"> *@
+                @*         <input type="hidden" name="id" value="@booking.Id" /> *@
+                @*         <button type="submit"  *@
+                @*             class="btn btn-danger" *@
+                @*             style="padding: 5px 10px; border: none; background-color: red; color: white; border-radius: 5px; cursor: pointer;" *@
+                @*                 onclick="return confirm('Are you sure you want to cancel this booking?');"> *@
+                @*             Cancel *@
+                @*         </button> *@
+                @*     </form> *@
+                @* </td> *@
+            </tr>
+        }
+    </tbody>
+</table>

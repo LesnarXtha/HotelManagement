@@ -1,0 +1,66 @@
+﻿@model HotelManagement.Rooms.Room
+
+@{
+    ViewData["Title"] = "Edit Room";
+}
+
+<h2>Edit Room</h2>
+
+<form asp-action="Edit" enctype="multipart/form-data" method="post">
+    <div class="form-group">
+        <label asp-for="RoomNumber"></label>
+        <input asp-for="RoomNumber" class="form-control" />
+        <span asp-validation-for="RoomNumber" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RoomPrice"></label>
+        <input asp-for="RoomPrice" class="form-control" />
+        <span asp-validation-for="RoomPrice" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RoomType"></label>
+        <select asp-for="RoomType" class="form-control">
+            <option value="Deluxe" selected="@(Model.RoomType == "Deluxe")">Deluxe</option>
+            <option value="Standard" selected="@(Model.RoomType == "Standard")">Standard</option>
+        </select>
+        <span asp-validation-for="RoomType" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RoomAvailability"></label>
+        <select asp-for="RoomAvailability" class="form-control">
+            <option value="true" selected="@(Model.RoomAvailability ? "selected" : null)">Available</option>
+            <option value="false" selected="@(Model.RoomAvailability ? null : "selected")">Not Available</option>
+        </select>
+        <span asp-validation-for="RoomAvailability" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label for="PictureFile">Upload Picture</label>
+        <input type="file" id="PictureFile" name="PictureFile" class="form-control" />
+        @if (!string.IsNullOrEmpty(Model.PicturePath))
+        {
+            <div style="margin-top: 10px;">
+                <p>Current Picture:</p>
+                <img src="@Model.PicturePath" alt="@Model.RoomType" style="width: 100%; max-height: 200px; object-fit: cover; border-radius: 10px;" />
+            </div>
+        }
+    </div>
+
+    <div class="form-group">
+        <label for="Amenities">Amenities</label><br />
+        @foreach (var amenity in new[] { "WiFi", "Breakfast", "Pool", "Spa", "Gym", "Room Service" })
+        {
+            <label style="margin-right: 10px;">
+                <input type="checkbox" name="Amenities" value="@amenity" @(Model.Amenities != null && Model.Amenities.Contains(amenity) ? "checked" : "") /> @amenity
+            </label>
+        }
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+<a asp-controller="Room" asp-action="Index" class="btn btn-secondary" style="margin-top: 20px;">Back To Rooms</a>

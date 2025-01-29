@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Bliss</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="container">
+        <!-- Slogan -->
+        <div class="slogan">
+            <h1>"Escape the Ordinary, Embrace the Extraordinary"</h1>
+        </div>
+
+        <!-- Main Image -->
+        <div class="main-image">
+            <img src="~/images/hotel1.jpg" alt="Luxury Hotel" class="img-large">
+        </div>
+
+        <!-- Smaller Images -->
+        <div class="small-images">
+            <img src="~/images/hotel2.jpg" alt="Hotel Room" class="img-small">
+            <img src="~/images/hotel3.jpg" alt="Swimming Pool" class="img-small">
+            <img src="~/images/hotel4.jpg" alt="Restaurant" class="img-small">
+        </div>
+
+        <!-- Buttons -->
+        <div class="buttons">
+            <a asp-controller="Room" asp-action="Index" class="buttonxx">View Rooms</a>
+            <a asp-controller="Booking" asp-action="Details" class="buttonxx">Booking History</a>
+
+
+
+            @* <button onclick="navigateToRooms()"></button> *@
+            @* <button onclick="navigateToBooking()"></button> *@
+        </div>
+    </div>
+
+    @* <script> *@
+    @*     // Navigation functionality for buttons *@
+    @*     function navigateToRooms() { *@
+    @*         window.location.href = "/Rooms/Index"; // Adjust this URL to match your route for rooms *@
+    @*     } *@
+
+    @*     function navigateToBooking() { *@
+    @*         window.location.href = "/Booking/Details"; // Adjust this URL to match your booking details route *@
+    @*     } *@
+    @* </script> *@
+</body>
+</html>

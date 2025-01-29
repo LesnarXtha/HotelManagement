@@ -1,0 +1,4 @@
+﻿@{
+    var isAdmin = User.IsInRole("Admin");
+    Layout = isAdmin ? "_AdminLayout" : "_Layout";
+}

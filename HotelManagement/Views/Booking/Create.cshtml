@@ -1,0 +1,36 @@
+﻿@model HotelManagement.Bookings.BookingModel
+
+@{
+    ViewData["Title"] = "Book Room";
+}
+
+<h1>Book Room</h1>
+
+<div>
+    <h3>Room Details</h3>
+    <p><strong>Room Type:</strong> @Model.Room.RoomType</p>
+    <p><strong>Room Number:</strong> @Model.Room.RoomNumber</p>
+    <p><strong>Price:</strong> $@Model.Room.RoomPrice</p>
+</div>
+
+<form asp-action="Create" method="post">
+    <input type="hidden" asp-for="RoomId" />
+
+    <div>
+        <label asp-for="FirstName"></label>
+        <input asp-for="FirstName" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="LastName"></label>
+        <input asp-for="LastName" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="CheckInDate"></label>
+        <input asp-for="CheckInDate" type="date" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="CheckOutDate"></label>
+        <input asp-for="CheckOutDate" type="date" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Book Now</button>
+</form>

@@ -1,0 +1,61 @@
+﻿@model HotelManagement.Rooms.Room
+
+@{
+    ViewData["Title"] = "Create Room";
+}
+
+<h2>Create Room</h2>
+
+<form asp-action="Create" enctype="multipart/form-data" method="post">
+    <div class="form-group">
+        <label asp-for="RoomNumber"></label>
+        <input asp-for="RoomNumber" class="form-control" />
+        <span asp-validation-for="RoomNumber" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RoomPrice"></label>
+        <input asp-for="RoomPrice" class="form-control" />
+        <span asp-validation-for="RoomPrice" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RoomType"></label>
+        <select asp-for="RoomType" class="form-control">
+            <option value="Deluxe">Deluxe</option>
+            <option value="Standard">Standard</option>
+        </select>
+        <span asp-validation-for="RoomType" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RoomAvailability"></label>
+        <select asp-for="RoomAvailability" class="form-control">
+            <option value="true">Available</option>
+            <option value="false">Not Available</option>
+        </select>
+        <span asp-validation-for="RoomAvailability" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="pictureFile">Upload Picture</label>
+        <input type="file" id="pictureFile" name="pictureFile" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="amenities">Amenities</label><br />
+        <input type="checkbox" name="Amenities" value="WiFi" /> WiFi
+        <input type="checkbox" name="Amenities" value="Breakfast" /> Breakfast
+        <input type="checkbox" name="Amenities" value="Pool" /> Pool
+        <input type="checkbox" name="Amenities" value="Spa" /> Spa
+        <input type="checkbox" name="Amenities" value="Gym" /> Gym
+        <input type="checkbox" name="Amenities" value="Room Service" /> Romm Service
+
+
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+
+</form>
+<a asp-controller="Room" asp-action="Index" class="btn btn-secondary" style="text-align: center; margin-top: 20px;">Back To Rooms</a>
